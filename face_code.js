@@ -14,14 +14,16 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 
-function orangeAlienFace1(tilt_value, colour_value, eye_value, mouth_value) {
-  const bg_color3 = [71, 222, 219];
-  const blueStroke = [58, 109, 209];
-  const redStroke = [200, 30, 40];
-  const peachStroke = [255, 186, 159];
+const blueStroke = [58, 109, 209];
+const redStroke = [200, 30, 40];
+const peachStroke = [255, 186, 159];
 
-  let headHeight = 19;
-  let headWidth = 15;
+function orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWidth) {
+  const bg_color3 = [71, 222, 219];
+
+
+  //let headHeight = 19;
+  //let headWidth = 15;
   let eyeSize = 5;
   let centerX = 0;
   let Iy = -4
@@ -33,21 +35,28 @@ function orangeAlienFace1(tilt_value, colour_value, eye_value, mouth_value) {
   rotate(tilt_value);
   rectMode(CENTER);
 
-  strokeWeight(0.8);
-
-  if (colour_value == 1) {
-    stroke(blueStroke);
-  } else if (colour_value == 2) {
-    stroke(redStroke);
-  } else {
-    stroke(peachStroke);
-  }
-  
+  strokeWeight(0.5);
+  stroke(blueStroke);
 
  // head
-  
   noFill();
   rect(centerX, 0, headWidth, headHeight, 2);
+
+  //use random for colours (40%blue face, 40% red face, 20% peach face) - check colour spinner stuff 16 April
+  //based on height/width of face = draw random set of eyes (width and height of head - min 10, max 20)
+
+  //find where eyes should sit (center top third)
+  let headHeightCenter = headHeight/3;
+  let headWidthCenter = headWidth/2;
+
+  if (eye_value == 1) {
+    //draw these eyes
+  } else if (eye_value == 2) {
+    //draw these eyes)
+  } else {
+    //draw these eyes
+  }
+  
 
   // 2 traditonal eyes
   if (eye_value === 1 || eye_value == 3) {

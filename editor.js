@@ -88,8 +88,10 @@ function draw () {
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
    let eye_value = int(map(s3, 0, 100, 1, 3));
-   let colour_value = int(map(s4, 0, 100, 1, 3));
-   orangeAlienFace1(tilt_value, colour_value, eye_value, mouth_value);
+   let headHeight = map(s4, 0, 100, 8, 17);
+   let headWidth = map(s5, 0, 100, 8, 17);
+   
+   orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWidth);
   }
 
   if (mode == '2') {
