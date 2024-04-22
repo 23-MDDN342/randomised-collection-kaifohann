@@ -84,12 +84,12 @@ function draw () {
 
   push();
   if (mode == '1') {
-   // draw face using values mapped from 3 sliders
+   // draw face using values mapped from sliders
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
    let eye_value = int(map(s3, 0, 100, 1, 3));
    let headHeight = map(s4, 0, 100, 8, 17);
-   let headWidth = map(s5, 0, 100, 8, 17);
+   let headWidth = map(s5, 0, 100, 8, 18);
    
    orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWidth);
   }

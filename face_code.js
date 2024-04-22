@@ -56,9 +56,19 @@ function orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWi
   } else {
     //draw these eyes
   }
-  
 
-  // 2 traditonal eyes
+
+  fill(blueStroke)
+  //base for hair 
+  /*
+  fill(blueStroke)
+  //center hair and center place it at the headheight top
+  rect(0, -headHeight/3,headWidth+2,headHeight/2, 0.5) */
+  
+  arc(0, -headHeight/5,headWidth+2,headHeight, 180, 360)
+
+
+  /*// 2 traditonal eyes
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
     ellipse(centerX, Iy, eyeSize-1,eyeSize);
@@ -73,7 +83,7 @@ function orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWi
 
   // mouth
   fill(bg_color3);
-  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);*/
 }
 
 /*
