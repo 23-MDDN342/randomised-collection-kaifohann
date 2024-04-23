@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [71, 222, 219];
+const bg_color = [255,255,255];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
@@ -88,10 +88,13 @@ function draw () {
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
    let eye_value = int(map(s3, 0, 100, 1, 3));
-   let headHeight = map(s4, 0, 100, 8, 17);
-   let headWidth = map(s5, 0, 100, 8, 18);
+   //let headHeight = map(s4, 0, 100, 8, 16);
+   let headWidth = map(s4, 0, 100, 10, 16);
+   let faceHeight = map(s5, 0, 100, 7.5, 10.5);
+   //let hairLength = map(s6, 0, 100, 5, 15);
    
-   orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWidth);
+   
+   orangeAlienFace1(tilt_value, mouth_value, eye_value, headWidth, faceHeight);
   }
 
   if (mode == '2') {
