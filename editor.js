@@ -91,10 +91,13 @@ function draw () {
    //let headHeight = map(s4, 0, 100, 8, 16);
    let headWidth = map(s4, 0, 100, 10, 16);
    let faceHeight = map(s5, 0, 100, 7.5, 10.5);
+   let hairCurve1 = map(s6, 0, 100, 0.3, 2);
+   let hairCurve2 = map(s7, 0, 100, 0.3, 2);
+   
    //let hairLength = map(s6, 0, 100, 5, 15);
    
    
-   orangeAlienFace1(tilt_value, mouth_value, eye_value, headWidth, faceHeight);
+   blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hairCurve1, hairCurve2);
   }
 
   if (mode == '2') {

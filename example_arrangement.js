@@ -65,7 +65,7 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        orangeAlienFace1(tilt_value, eye_value, mouth_value);
+        blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hairCurve1, hairCurve2)
         pop();
       }
       else if (i > 0) {

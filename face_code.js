@@ -18,7 +18,7 @@ const blueStroke = [58, 109, 209];
 const redStroke = [200, 30, 40];
 const peachStroke = [255, 186, 159];
 
-function orangeAlienFace1(tilt_value, mouth_value, eye_value, headWidth, faceHeight) {
+function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hairCurve1, hairCurve2) {
   const bg_color3 = [71, 222, 219];
 
 
@@ -49,13 +49,7 @@ function orangeAlienFace1(tilt_value, mouth_value, eye_value, headWidth, faceHei
 
   //find where eyes should sit (center top third)
 
-  if (eye_value == 1) {
-    //draw these eyes
-  } else if (eye_value == 2) {
-    //draw these eyes)
-  } else {
-    //draw these eyes
-  }
+ 
 
 
   
@@ -63,28 +57,28 @@ function orangeAlienFace1(tilt_value, mouth_value, eye_value, headWidth, faceHei
   fill(blueStroke)
   let hairWidth =  map(headWidth, 8, 16, 10, 20);
   
-  /*
+  
   //DRAW RECTANGLE HAIR BASE
   let sqhairHeight = map(headHeight, 8, 16, 8, 12)
   fill(blueStroke)
   //center hair and center place it at the headheight top
   rect(0, -headHeight/3.9, hairWidth, sqhairHeight, 2) 
- */
+ 
   
-  
+  /*
   //DRAW ROUND HAIR BASE
   noStroke();
   let arcHeight = map(headHeight, 8, 16,12,18);
   
   arc(0, -1,hairWidth,arcHeight, 180, 360);
-  
+  */
 
   //DRAW SIDES OF LONG HAIR
   fill(blueStroke)
   let hXpos = map(headWidth, 8, 16, -3.5, -8)
   let hWidth = map(headWidth, 8, 16, 3, 4);
-  rect(hXpos, 4.2, hWidth, 11,0,0,2,2);
-  rect(-hXpos,4.2, hWidth, 11,0,0,2,2);
+  rect(hXpos, 4.2, hWidth, 11,0,0,hairCurve1,hairCurve2);
+  rect(-hXpos,4.2, hWidth, 11,0,0,hairCurve2,hairCurve1);
 
   //DRAW FACE
   let headYpos = map(faceHeight, 8, 16, 3, 7.5);
@@ -107,15 +101,39 @@ function orangeAlienFace1(tilt_value, mouth_value, eye_value, headWidth, faceHei
   
   //EYE TYPES
   let eyeXpos = map(headWidth, 8, 16, 1.5, 3);
-  
-  // eyes type 1
   stroke(blueStroke);
-  strokeWeight(0.7);
-  point(-eyeXpos,1.5);
-  point(eyeXpos, 1.5);
-  strokeWeight(0.37);
-  line(-eyeXpos+0.5,2.2, -eyeXpos-0.5, 2.7);
-  line(eyeXpos-0.5, 2.2, eyeXpos+0.5, 2.7)
+
+  if (eye_value == 1) {
+      // eyes type 1
+    strokeWeight(0.7);
+    point(-eyeXpos,1.5);
+    point(eyeXpos, 1.5);
+    strokeWeight(0.37);
+    line(-eyeXpos+0.5,2.2, -eyeXpos-0.5, 2.7);
+    line(eyeXpos-0.5, 2.2, eyeXpos+0.5, 2.7)
+  } else if (eye_value == 2) {
+    //eyes type 2
+    strokeWeight(0.37);
+    noFill();
+    ellipse(-eyeXpos-0.2, 1.5, 2.5, 2.5);
+    ellipse(eyeXpos+0.2, 1.5, 2.5, 2.5);
+    strokeWeight(1.5);
+    point(-eyeXpos-0.2, 1.5);
+    point(eyeXpos+0.2, 1.5);
+  } else if (eye_value == 3){
+    //draw these eyes
+    strokeWeight(0.9);
+    noFill();
+    point(-eyeXpos-0.5,1.5);
+    point(eyeXpos+0.5, 1.5);
+    strokeWeight(0.37);
+    line(-eyeXpos+0.5,1.1, -eyeXpos-2, 1.1);
+    line(eyeXpos-0.5, 1.1, eyeXpos+2, 1.1)
+    arc(-eyeXpos-0.9, 1.15, 3, 2.5, 0, 90)
+    arc(eyeXpos+0.9, 1.15, 3, 2.5, 90,180)
+  }
+  
+
   
 
   /*

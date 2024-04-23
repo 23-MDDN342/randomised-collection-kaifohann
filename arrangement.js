@@ -54,6 +54,16 @@ function draw () {
       let x = w/2 + w*j;
      
         // center face
+
+        let tilt_value = random(-90, 90);
+        let mouth_value = random(0.5, 10);
+        let eye_value = int(random(1, 3));
+        //let headHeight = map(s4, 0, 100, 8, 16);
+        let headWidth = random(10, 16);
+        let faceHeight = random(7.5, 10.5);
+        let hairCurve1 = random( 0.3, 2);
+        let hairCurve2 = random(0.3, 2);
+        /*
         let eye_value = int(random(2,4));
         let tilt_value = random(-45, 45);
         let mouth_value = random(3,4);
@@ -64,12 +74,13 @@ function draw () {
           tilt_value = random(-5, 5);
           mouth_value = random(0, 1.7);
         }
+        */
 
         push();
         translate(x, y);
         scale(w/25, h/25);
         
-        orangeAlienFace1(tilt_value, mouth_value, eye_value, headHeight, headWidth);
+        blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hairCurve1, hairCurve2)
         pop();
       
     }
