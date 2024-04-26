@@ -87,7 +87,7 @@ function draw () {
    // draw face using values mapped from sliders
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
-   let eye_value = int(map(s3, 0, 100, 1, 3));
+   let eye_value = int(map(s3, 0, 100, 1, 4));
    //let headHeight = map(s4, 0, 100, 8, 16);
    let headWidth = map(s4, 0, 100, 10, 16);
    let faceHeight = map(s5, 0, 100, 7.5, 10.5);

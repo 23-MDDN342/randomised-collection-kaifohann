@@ -57,7 +57,7 @@ function draw () {
 
         let tilt_value = random(-90, 90);
         let mouth_value = random(0.5, 10);
-        let eye_value = int(random(1, 3));
+        let eye_value = int(random(1, 4));
         //let headHeight = map(s4, 0, 100, 8, 16);
         let headWidth = random(10, 16);
         let faceHeight = random(7.5, 10.5);
