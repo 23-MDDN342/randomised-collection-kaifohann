@@ -18,6 +18,8 @@ const blueStroke = [58, 109, 209];
 const redStroke = [200, 30, 40];
 const peachStroke = [255, 186, 159];
 
+
+
 function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hairCurve1, hairCurve2) {
   const bg_color3 = [71, 222, 219];
 
@@ -51,44 +53,96 @@ function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hai
 
  
 
-
+  let headYpos = map(faceHeight, 8, 16, 3, 7.5);
+  let sqhairHeight = map(headHeight, 8, 16, 8, 12)
+  let hWidth = map(headWidth, 8, 16, 3, 4);
   
   //DRAW HAIR
   fill(blueStroke)
   let hairWidth =  map(headWidth, 8, 16, 10, 20);
   
-  
+  /*
   //DRAW RECTANGLE HAIR BASE
   let sqhairHeight = map(headHeight, 8, 16, 8, 12)
   fill(blueStroke)
   //center hair and center place it at the headheight top
   rect(0, -headHeight/3.9, hairWidth, sqhairHeight, 2) 
- 
-  
+  */
   /*
   //DRAW ROUND HAIR BASE
   noStroke();
   let arcHeight = map(headHeight, 8, 16,12,18);
-  
   arc(0, -1,hairWidth,arcHeight, 180, 360);
   */
+/*
+   //DRAW SIDES OF LONG HAIR
+   fill(blueStroke)
+   let hXpos = map(headWidth, 8, 16, -3.5, -8)
+   rect(hXpos, 4.2, hWidth, 11,0,0,hairCurve1,hairCurve2);
+   rect(-hXpos,4.2, hWidth, 11,0,0,hairCurve2,hairCurve1);
+   */
 
-  //DRAW SIDES OF LONG HAIR
-  fill(blueStroke)
-  let hXpos = map(headWidth, 8, 16, -3.5, -8)
-  let hWidth = map(headWidth, 8, 16, 3, 4);
-  rect(hXpos, 4.2, hWidth, 11,0,0,hairCurve1,hairCurve2);
-  rect(-hXpos,4.2, hWidth, 11,0,0,hairCurve2,hairCurve1);
+  /*
+  //DRAW HAIR BASE FOR MEN
+  fill(blueStroke);
+  strokeWeight(0.4);
+  //center hair and center place it at the headheight top
+  rect(0, -headHeight/3.9, headWidth+1, sqhairHeight, 2) 
+*/
+  
 
-  //DRAW FACE
-  let headYpos = map(faceHeight, 8, 16, 3, 7.5);
+  /*
+  //DRAW HAT with brim
+  strokeWeight(1)
+  let hatBrimLength = map(headWidth, 10, 16, -8.5, -10)
+  line(centerX-headWidth/2, headYpos-faceHeight/2, hatBrimLength, headYpos-faceHeight/2);
+  */
+ 
+  
+/*
+  //needed when forehead is on display aka bald
+  translate(0,-(headHeight/faceHeight))
+  //DRAW FACE with everything rounded 
+  stroke(blueStroke);
+  strokeWeight(0.4);
+  fill('white');
+  //noFill();
+  rect(centerX, headYpos-(headHeight/faceHeight), headWidth, headHeight+(headHeight/faceHeight), 2);
+
+ 
+  //balding
+  let sideHairLength = map(faceHeight, 7.5, 10.5, 2, 6)
+  fill(blueStroke);
+  strokeWeight(0.4)
+  rect(centerX-headWidth/2,headYpos-faceHeight/2+1, hWidth-2, sideHairLength, 0.5);
+  rect(centerX+headWidth/2,headYpos-faceHeight/2+1, hWidth-2, sideHairLength, 0.5);
+  point(centerX+headWidth/2-2.5, 0-headHeight/2+headYpos)
+  strokeWeight(0.6);
+  point(centerX+headWidth/2-2, 0-headHeight/2+headYpos+0.5)
+  
+  */
+
+  fill(blueStroke);
+  strokeWeight(0.4);
+  //center hair and center place it at the headheight top
+  rect(0, -headHeight/3.9, headWidth, sqhairHeight, 2) 
+  
+  //DRAW FACE with top corners square
   stroke(blueStroke);
   strokeWeight(0.4);
   fill('white');
   //noFill();
   rect(centerX, headYpos, headWidth, faceHeight, 0,0,2,2);
+
+  //DRAW SIDE BURNS
+
+  fill(blueStroke)
+   let sideBrnXpos = map(headWidth, 8, 16, -4.2, -8.4)
+   rect(sideBrnXpos+1, 0.8, 1, 3,0,0, 0.2);
+   rect(-sideBrnXpos-1,0.8, 1, 3,0,0, 0.2);
   
-  
+
+  /*
   //DRAW FRINGE CUT TRIANGLE
   fill('white')
   noStroke();
@@ -97,6 +151,7 @@ function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hai
   vertex(0,-3);
   vertex(1,-0.5);
   endShape(CLOSE);
+  */
   
   
   //EYE TYPES
@@ -164,7 +219,7 @@ function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hai
 
   //NOSE TYPES
   
-  
+  /*
   //nose type 1 - long point
   stroke(blueStroke);
   strokeWeight(0.37)
@@ -174,7 +229,7 @@ function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hai
   vertex(-1, 3.5);
   vertex(0, 3.5)
   endShape();
-  
+  */
 
   /*
   //nose type 2 - even point
@@ -187,6 +242,18 @@ function blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hai
   vertex(0, 4)
   endShape();
 */
+
+//nose type 3 - droopy
+
+  //nose type 1 - long point
+    stroke(blueStroke);
+  strokeWeight(0.37)
+  beginShape(LINES)
+  ertex(0, 1);
+  vertex(-1, 3.5);
+  vertex(-1, 3.5);
+  vertex(0, 3.5)
+  endShape();
   
   //DRAW LIP TYPES
   
