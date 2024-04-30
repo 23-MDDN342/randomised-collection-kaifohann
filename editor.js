@@ -93,10 +93,12 @@ function draw () {
    let headWidth = map(s4, 0, 100, 10, 16);
    let faceHeight = map(s5, 0, 100, 7.5, 10.5);
    let Fhair_type = int(map(s6, 0, 100, 1, 3));
+   let MHair_type = int(map(s6, 0, 100, 1, 3))
    let hairCurve1 = map(s7, 0, 100, 0.3, 2);
    let hairCurve2 = map(s8, 0, 100, 0.3, 2);
    let FfringeCut = int(map(s9, 0, 100, 1, 2));
-   let MHair_type = int(map(s6, 0, 100, 1, 3))
+   let stache = int(map(s10, 0, 100, 1, 2));
+   
   if (mode == '2') {
    // draw face using values mapped from sliders
    
@@ -108,7 +110,7 @@ function draw () {
   }
   else if (mode == '1') {
   // let slider value 1 indicate thinness
-    redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type);
+    redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache);
   } /*
 if (mode == '2')
 
