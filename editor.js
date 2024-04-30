@@ -82,33 +82,45 @@ function draw () {
   translate(face_x, face_y);
   scale(face_scale);
 
+  //have random inform other types of random
+
+
   push();
-  if (mode == '1') {
-   // draw face using values mapped from sliders
-   let tilt_value = map(s1, 0, 100, -90, 90);
-   let mouth_value = map(s2, 0, 100, 0.5, 10);
+   let lip_value = int(map(s1, 0, 100, 1, 2));
+   let nose_value = int(map(s2, 0, 100, 1, 5));
    let eye_value = int(map(s3, 0, 100, 1, 4));
    //let headHeight = map(s4, 0, 100, 8, 16);
    let headWidth = map(s4, 0, 100, 10, 16);
    let faceHeight = map(s5, 0, 100, 7.5, 10.5);
-   let hairCurve1 = map(s6, 0, 100, 0.3, 2);
-   let hairCurve2 = map(s7, 0, 100, 0.3, 2);
+   let Fhair_type = int(map(s6, 0, 100, 1, 3));
+   let hairCurve1 = map(s7, 0, 100, 0.3, 2);
+   let hairCurve2 = map(s8, 0, 100, 0.3, 2);
+   let FfringeCut = int(map(s9, 0, 100, 1, 2));
+   let MHair_type = int(map(s6, 0, 100, 1, 3))
+  if (mode == '2') {
+   // draw face using values mapped from sliders
+   
    
    //let hairLength = map(s6, 0, 100, 5, 15);
    
+   blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut);
    
-   blueFace(tilt_value, mouth_value, eye_value, headWidth, faceHeight, hairCurve1, hairCurve2);
   }
+  else if (mode == '1') {
+  // let slider value 1 indicate thinness
+    redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type);
+  } /*
+if (mode == '2')
 
-  if (mode == '2') {
-     // let slider value 1 indicate thinness
-     blockyFace(s1);
-  }
-  if (mode == '3') {
-    simplePurpleFace();
-  }
+  
+ }
+  
+  {
+ 
+}*/
+pop();
+  
 
-  pop();
 
   if(show_face_guide) {
     strokeWeight(0.1);
