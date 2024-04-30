@@ -14,20 +14,31 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 
-const blueStroke = [58, 109, 209];
-const redStroke = [200, 30, 40];
-const peachStroke = [255, 186, 159];
+//const blueStroke = [58, 109, 209];
+//const redStroke = [200, 30, 40];
+//const peachStroke = [255, 186, 159];
 
 //use random for colours (40%blue face, 40% red face, 20% peach face) - check colour spinner stuff 16 April
-function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache) {
+function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache, peach) {
   let centerX = 0;
-  
-  //if (peach == false)
+  let faceColour;
+
+  //temp
+  //let peach = false;
+
+  if (peach == false) {
+    //red faces
+    faceColour = [200, 30, 40];
+  } else if (peach == true) {
+    //peach faces
+    faceColour = [255, 186, 159];
+  }
+
   // rotation in degrees
   angleMode(DEGREES);
   rectMode(CENTER);
   strokeWeight(0.4);
-  stroke(redStroke);
+  stroke(faceColour);
 
  // head
   noFill();
@@ -40,13 +51,13 @@ function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_
   let hWidth = map(headWidth, 8, 16, 3, 4);
   
   //DRAW HAIR
-  fill(redStroke)
+  fill(faceColour)
   let hairWidth =  map(headWidth, 8, 16, 10, 20);
 
 
   if (MHair_type == 1){
     //hat
-    fill(redStroke);
+    fill(faceColour);
     strokeWeight(0.4);
     //center hair and center place it at the headheight top
     rect(0, -headHeight/3.9, headWidth+1, sqhairHeight, 2);
@@ -69,7 +80,7 @@ function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_
     rect(centerX, headYpos-(headHeight/faceHeight), headWidth, headHeight+(headHeight/faceHeight), 2);
 
     let sideHairLength = map(faceHeight, 7.5, 10.5, 2, 6)
-    fill(redStroke);
+    fill(faceColour);
     strokeWeight(0.4)
     rect(centerX-headWidth/2,headYpos-faceHeight/2+1, hWidth-2, sideHairLength, 0.5);
     rect(centerX+headWidth/2,headYpos-faceHeight/2+1, hWidth-2, sideHairLength, 0.5);
@@ -80,7 +91,7 @@ function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_
   } else if (MHair_type == 3) {
     //big hair?
     //draw flat base hair
-    fill(redStroke);
+    fill(faceColour);
     strokeWeight(0.4);
     //center hair and center place it at the headheight top
     rect(0, -headHeight/3.9, headWidth, sqhairHeight, 2) 
@@ -92,29 +103,43 @@ function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_
    rect(centerX, headYpos, headWidth, faceHeight, 0,0,2,2);
   
     //DRAW SIDE BURNS
-    fill(redStroke)
+    fill(faceColour)
     let sideBrnXpos = map(headWidth, 8, 16, -4.8, -8.4)
     rect(sideBrnXpos, -2.2, 3, 6.5,1);
     rect(-sideBrnXpos,-2.2, 3, 6.5,1);
   }
 
 
-drawFeatures(headWidth, headHeight, eye_value, nose_value,lip_value, redStroke, stache);
+drawFeatures(headWidth, headHeight, eye_value, nose_value,lip_value, faceColour, stache);
 
 }
 
 
 
 
-function blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut) {
+function blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut, peach) {
 
   let centerX = 0;
+  let faceColour;
+
+  //temp
+  //let peach = false;
+
+
+  
+  if (peach == false) {
+    //blue face
+    faceColour = [58, 109, 209];
+  } else if (peach == true) {
+    //peach faces
+    faceColour = [255, 186, 159];
+  }
   
   // rotation in degrees
   angleMode(DEGREES);
   rectMode(CENTER);
   strokeWeight(0.4);
-  stroke(blueStroke);
+  stroke(faceColour);
 
  // head
   noFill();
@@ -128,18 +153,18 @@ function blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair
   
   
   //DRAW HAIR
-  fill(blueStroke)
+  fill(faceColour)
   let hairWidth =  map(headWidth, 8, 16, 10, 20);
 
   if (Fhair_type == 1){
     //DRAW RECTANGLE HAIR BASE
     noStroke();
     let sqhairHeight = map(headHeight, 8, 16, 8, 12)
-    fill(blueStroke)
+    fill(faceColour)
      //center hair and center place it at the headheight top
     rect(0, -headHeight/3.9, hairWidth, sqhairHeight, 2); 
     //DRAW SIDES OF LONG HAIR
-    fill(blueStroke)
+    fill(faceColour)
     let hXpos = map(headWidth, 8, 16, -4, -8)
     rect(hXpos, 4.2, hWidth, 11,0,0,hairCurve1,hairCurve2);
     rect(-hXpos,4.2, hWidth, 11,0,0,hairCurve2,hairCurve1);
@@ -149,21 +174,21 @@ function blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair
     let arcHeight = map(headHeight, 8, 16,12,18);
     arc(0, -1,hairWidth,arcHeight, 180, 360);
     //DRAW SIDES OF LONG HAIR
-    fill(blueStroke)
+    fill(faceColour)
     let hXpos = map(headWidth, 8, 16, -4, -8)
     rect(hXpos, 4.2, hWidth, 11,0,0,hairCurve1,hairCurve2);
     rect(-hXpos,4.2, hWidth, 11,0,0,hairCurve2,hairCurve1);
 
   } else if (Fhair_type == 2) {
     //bun
-    fill(blueStroke);
+    fill(faceColour);
     strokeWeight(0.4);
     //center hair and center place it at the headheight top
     rect(0, headHeight-(headHeight*1.1), hairWidth-1, sqhairHeight, 2);
     ellipse(0,-headHeight+(headHeight*0.45), 4, 4);
   }
 
-  stroke(blueStroke);
+  stroke(faceColour);
   strokeWeight(0.4);
   fill('white');
 
@@ -184,7 +209,7 @@ function blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair
     endShape(CLOSE);
   }
 
-  drawFeatures(headWidth, headHeight, eye_value, nose_value,lip_value, blueStroke, 0);
+  drawFeatures(headWidth, headHeight, eye_value, nose_value,lip_value, faceColour, 0);
 }
 
 

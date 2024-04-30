@@ -36,62 +36,17 @@ function mouseClicked() {
   changeRandomSeed();
 }
 
-function draw () {
-
-  
-  
+function draw () {  
   if(millis() > lastSwapTime + millisPerSwap) {
     changeRandomSeed();
-    
   }
-
   // reset the random number generator each time draw is called
   randomSeed(curRandomSeed);
 
-  // clear screen
+  //clear screen
   background(bg_color1);
   noStroke();
   drawCell();
-  
-
-/*
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 10;
-  let h = canvasHeight / 5;
-  for(let i=0; i<5; i++) {
-    for(let j=0; j<10; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;
-     
-      //less hat more bald
-      //average bell curve or random domino or random spinner
-
-      let lip_value = int(random(1, 3));
-      let nose_value = int(random( 1, 6));
-      let eye_value = int(random( 1, 5));
-   
-      let headWidth = random(10, 17);
-      let faceHeight = random(7.5, 10.5);
-      let Fhair_type = int(random( 1, 4));
-      let hairCurve1 = random( 0.3, 2);
-      let hairCurve2 = random( 0.3, 2);
-      let FfringeCut = int(random(1, 3));
-      let MHair_type = int(random(1, 4))
-
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if (random(0,100)<50) {
-          redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type);
-        } else {
-        blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut);
-        }
-       
-        pop();
-       
-      }
-  }*/
-   
 }
 
 function drawCell() {
@@ -115,9 +70,9 @@ function createCell(posX, posY, wid, hei, depth){
     createCell(posX+wid/2, posY+hei/2, wid/2, hei/2, depth-int(random([1,2])))
 
 
-  }else{
+  } else {
     //scale to canvaswidth/wid canvasheight/hei
-
+    let peach;
     
     //rect(posX, posY, wid, hei);
     
@@ -136,17 +91,31 @@ function createCell(posX, posY, wid, hei, depth){
       let FfringeCut = int(random(1, 3));
       let MHair_type = int(random(1, 4));
       let stache = int(random(1, 3));
+
+      let colourSpinner = random(0,100);
+      
    
 
         push();
         translate(posX+wid/2, posY+hei/2);
         scale(-wid/22, -hei/22);
-        if (random(0,100)<50) {
-          redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache);
-        } else {
-          blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut);
+        if (colourSpinner <= 5 || colourSpinner >= 95) {
+          peach = true;
+        } else if (colourSpinner >=5 && colourSpinner <= 50) {
+          peach = false;
+          redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache, peach);
+        } else if (colourSpinner > 50 && colourSpinner < 95) {
+          peach = false;
+          blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut, peach);
         }
-       
+
+        /*
+        if (random(0,100)<50) {
+          redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache, peach);
+        } else {
+          blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut, peach);
+        }
+       */
         pop();
         
 
