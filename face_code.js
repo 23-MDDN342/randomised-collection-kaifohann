@@ -28,10 +28,10 @@ function redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_
 
   if (peach == false) {
     //red faces
-    faceColour = [200, 30, 40];
+    faceColour = [196, 8, 8];
   } else if (peach == true) {
     //peach faces
-    faceColour = [255, 186, 159];
+    faceColour = [255, 150, 125];
   }
 
   // rotation in degrees
@@ -129,10 +129,10 @@ function blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair
   
   if (peach == false) {
     //blue face
-    faceColour = [58, 109, 209];
+    faceColour = [59, 133, 228];
   } else if (peach == true) {
     //peach faces
-    faceColour = [255, 186, 159];
+    faceColour = [255, 150, 125];
   }
   
   // rotation in degrees

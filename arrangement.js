@@ -99,8 +99,12 @@ function createCell(posX, posY, wid, hei, depth){
         push();
         translate(posX+wid/2, posY+hei/2);
         scale(-wid/22, -hei/22);
-        if (colourSpinner <= 5 || colourSpinner >= 95) {
+        if (colourSpinner <= 5) {
           peach = true;
+          redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache, peach);
+        } else if (colourSpinner >= 95) {
+          peach = true;
+          blueFace(lip_value, nose_value, eye_value, headWidth, faceHeight, Fhair_type, hairCurve1, hairCurve2, FfringeCut, peach);
         } else if (colourSpinner >=5 && colourSpinner <= 50) {
           peach = false;
           redFace(lip_value, nose_value, eye_value, headWidth, faceHeight, MHair_type, stache, peach);
