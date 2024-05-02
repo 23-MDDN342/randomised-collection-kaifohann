@@ -97,7 +97,7 @@ function draw () {
    let hairCurve1 = map(s7, 0, 100, 0.3, 2);
    let hairCurve2 = map(s8, 0, 100, 0.3, 2);
    let FfringeCut = int(map(s9, 0, 100, 1, 2));
-   let stache = int(map(s10, 0, 100, 1, 2));
+   let stache = int(map(s7, 0, 100, 1, 2));
    let peach = false;
    
   if (mode == '2') {
